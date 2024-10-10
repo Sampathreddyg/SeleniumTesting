@@ -7,20 +7,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Demo1 {
-
-	public static void main(String[] args) {
-
-		
+	static WebDriver driver;
+	public void launchBrowser(String url) {
 		ChromeOptions opt = new ChromeOptions();
 		opt.addArguments("start-maximized");
 		opt.addArguments("delete-coockies");
-		WebDriver driver = new ChromeDriver(opt);
+		driver = new ChromeDriver(opt);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-		driver.get("https://google.com");
-		String title = driver.getTitle();
-		System.out.println("Page title: "+title);
-		driver.close();
-		
+		driver.get(url);
 	}
+	
 
 }
